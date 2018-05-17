@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function clickGreetBtn() {
     var name = inputName.value;
     var checkedRadioBtn = document.querySelector("input[name='language']:checked");
-    if (checkedRadioBtn != null && name != "") {
+    if (checkedRadioBtn) {
 
       var languageChoice = checkedRadioBtn.value;
       var displayGreeting = greetSpotter.allGreetings(languageChoice, name);
