@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <title></title>
   <script src="greet.js" charset="utf-8"></script>
-  <script src="greet-counter.js" charset="utf-8"></script>
+  <script src="greet.dom.js" charset="utf-8"></script>
 
 </head>
 
@@ -19,13 +19,13 @@
     </div>
 
     <div class="">
-      Name : <input type="text" class="firstName">
+      Name : <input type="text" class="inputName">
     </div>
 
 <div class = "RadioBtn">
-<input type="radio" name="language" value="englishLang">English
-<input type="radio" name="language" value="afrikaansLang">Afrikaans
-<input type="radio" name="language" value="xhosaLang">isiXhosa
+<input type="radio" name="language" class="language" value="Hello">English
+<input type="radio" name="language" class="language" value="Halo">Afrikaans
+<input type="radio" name="language" class="language" value="Molo">isiXhosa
 </div>
 <div class="">
     greetings spotted: <span class="counter greetCounter" >0</span>
@@ -35,11 +35,11 @@
         <input type="button"  value="Greet Me" class="greetBtn">
       </div>
       <div class="three columns">
-        <input type="button" name="" value="Clear" class="clearBtn">
+        <input type="button" name="" value="reset" class="clearBtn">
       </div>
     </div>
     <div class="greeting">
-      Hello!
+
     </div>
   </div>
 </body>

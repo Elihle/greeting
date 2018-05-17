@@ -1,72 +1,30 @@
- document.addEventListener('DOMContentLoaded', function() {
-   var greetCounterElem = document.querySelector('.greetCounter');
-   var firstNameElement = document.querySelector('.firstName');
-   var greetBtnElement = document.querySelector('.greetBtn');
-   var clearBtnElement = document.querySelector('.clearBtn');
-   var greetingElement = document.querySelector('.greeting');
-   var language = document.querySelector('.language');
+function Greetings() {
+  var greetingSpotted = 0;
+  var greetedNames = {};
 
-   function clickGreetBtn() {
-     var firstName = firstNameElement.value;
-     var greetingString = "Hi, " + firstName;
-     greetingElement.innerHTML = greetingString;
-     firstNameElement.value = '';
-   }
+  function greet(language, name) {
+    if (name != '') {
+      if (greetedNames[name] === undefined) {
+        greetingSpotted++;
+        greetedNames[name] = 0;
+        return language + ', ' + name;
+      } else {
+        return language + ', ' + name;
+      }
+    }
+  }
 
-   function greet(firstName, language) {
-     var english = "";
-     var afrikaans = "";
-     var xhosa = "";
+  function greetSpottedCounter() {
+    return greetingSpotted;
+  }
 
-     var checkedRadioBtn = document.querySelector("input[name='language']:checked");
-     if (checkedRadioBtn) {
-       var language = checkedRadioBtn.value;
-     }
+  function greetCounter() {
+    return greetedNames;
+  }
 
-     if (language === 'English') {
-       return 'Hello ' + firstName;
-     }
-     if (language === 'Afrikaans') {
-       return 'Goeiemore ' + firstName;
-     }
-     if (language === 'isiXhosa') {
-       return 'Molo ' + firstName;
-     }
-   }
-
-   function greetingSpotted() {
-     var greetSpottedCounter = 0;
-
-     function doStuff() {
-
-     }
-
-     function greetSpotted() {
-       doStuff();
-       greetSpottedCounter++;
-     }
-
-     function greetCount() {
-       return greetSpottedCounter;
-     }
-
-     return {
-       greetSpotted,
-       greetCount
-     }
-   }
-   var greetingSpotted = greetingSpotted();
-
-   greetBtnElement.addEventListener('click', function() {
-     greetingSpotted.greetSpotted();
-     greetCounterElem.innerHTML = greetingSpotted.greetCount();
-   });
-
-   greetBtnElement.addEventListener('click', clickGreetBtn);
-
-   function clickTheClearButton() {
-     greetingElement.innerHTML = '';
-   };
-
-   clearBtnElement.addEventListener('click', clickGreetBtn);
- });
+  return {
+    allGreetings: greet,
+    countAllgreets: greetSpottedCounter,
+    countAllNames: greetCounter
+  }
+}
