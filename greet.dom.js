@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var greetingElement = document.querySelector('.greeting');
   var language = document.querySelector('.language');
 
+  var objKey ='namesGreeted';
   var greetSpotter = Greetings();
-
+  var storeCounter = localStorage.getItem('greetingSpotted');
   function clickGreetBtn() {
     var name = inputName.value;
     var checkedRadioBtn = document.querySelector("input[name='language']:checked");
@@ -15,14 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       var languageChoice = checkedRadioBtn.value;
       var displayGreeting = greetSpotter.allGreetings(languageChoice, name);
-
       var greetsNo = greetSpotter.countAllgreets();
       var greetName = greetSpotter.countAllNames();
 
       greetingElement.innerHTML = displayGreeting;
-      localStorage.setItem('namesGreeted', JSON.stringify(greetName));
-      greetCounterElem.innerHTML = greetSpotter.countAllgreets();
-      localStorage.setItem('namesGreeted', JSON.stringify(greetName));
+      localStorage.setItem('greetingSpotted', greetSpotter.countAllgreets());
+      greetCounterElem.innerHTML = storeCounter;
       inputName.value = '';
     }
   }
@@ -33,8 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var greetsNo = greetSpotter.countAllgreets();
     var greetName = greetSpotter.countAllNames();
-    localStorage.setItem('namesGreeted', JSON.stringify(greetName));
-
     inputName.innerHTML = "";
     greetCounterElem.innerHTML = greetsNo;
 
