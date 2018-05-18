@@ -1,9 +1,13 @@
-function Greetings() {
+function Greetings(stored) {
   var greetingSpotted = 0;
   var greetedNames = {};
 
+
+
   function greet(language, name) {
     if (name != '') {
+      greetingSpotted = stored;
+      console.log(greetingSpotted);
       if (greetedNames[name] === undefined) {
         greetingSpotted++;
         greetedNames[name] = 0;
