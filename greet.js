@@ -2,8 +2,6 @@ function Greetings(stored) {
   var greetingSpotted = 0;
   var greetedNames = {};
 
-
-
   function greet(language, name) {
     if (name != '') {
       greetingSpotted = stored;
