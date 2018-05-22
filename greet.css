@@ -1,17 +1,13 @@
 .container {
-background-color: green;
+background-color: #d2b48c;
 margin-top: 5em;
 }
 
-.greetBtn {
-color: red;
+#greetMeBtn {
+background-color: #e3dcc0;
 }
 
 h1 {
-  color: purple;
-  /* margin-left: 5em; */
-
-}
-.theCounter {
-  bo
+  color: #ca8f42;
+  background-color: #e3dcc0;
 }
