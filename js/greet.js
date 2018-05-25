@@ -15,7 +15,6 @@ function Greetings(stored) {
       if (language === "isiXhosa") {
         return 'Molo, ' + name;
       }
-
   }
 
   function greetSpottedCounter() {
