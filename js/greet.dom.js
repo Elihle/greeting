@@ -4,7 +4,6 @@ var greetBtnElement = document.querySelector('.greetBtn');
 var resetBtnElement = document.querySelector('.resetBtn');
 var greetingElement = document.querySelector('.greeting');
 var language = document.querySelector('.language');
-var storedCounter = JSON.parse(localStorage.getItem('greetedNames'));
 
 var checkStoredNames = function() {
   var storedNames = JSON.parse(localStorage.getItem("greetedNames"));
@@ -25,18 +24,18 @@ function clickGreetBtn() {
 
   if (checkedRadioBtn) {
     var languageChoice = checkedRadioBtn.value;
-    var displayGreeting = greetSpotter.allGreetings(languageChoice, name);
-    var greetNo = greetSpotter.countAllGreets();
-
     if (name === '') {
       greetingElement.innerHTML = 'Please enter your name';
       return;
     }
 
+    var displayGreeting = greetSpotter.allGreetings(languageChoice, name);
+    var greetNo = greetSpotter.countAllGreets();
+
     document.getElementById("nameInput").value = '';
     greetingElement.innerHTML = displayGreeting;
     greetCounterElem.innerHTML = greetNo;
-
+    
   } else {
     greetingElement.innerHTML = 'Please select language';
     inputName.value = '';
